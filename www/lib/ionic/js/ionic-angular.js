@@ -10530,11 +10530,7 @@ var ITEM_TPL_REORDER_BUTTON =
 * ```js
 * function MyCtrl($scope) {
 *   $scope.items = [1, 2, 3, 4];
-*   $scope.moveItem = function(item, fromIndex, toIndex) {
-*     //Move the item in the array
-*     $scope.items.splice(fromIndex, 1);
-*     $scope.items.splice(toIndex, 0, item);
-*   };
+*   s
 * }
 * ```
 *
@@ -10727,9 +10723,7 @@ function keyboardAttachGetClientHeight(element) {
 *
 *   </ion-item>
 * </ion-list>
-* ```
-*
-*```javascript
+* wipt
 * app.controller('MyCtrl', function($scope) {
 *  $scope.shouldShowDelete = false;
 *  $scope.shouldShowReorder = false;

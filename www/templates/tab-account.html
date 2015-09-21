@@ -1,9 +1,31 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+    <div class="list">
+      <div class="item item-divider">
+        Login to your account
+      </div>
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="text" value="jiting@outlook.com" ng-model="member.email">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" value="P@ss123" ng-model="member.password">
+      </label>
+    </div>
+    <button class="button button-full button-positive button-balanced" ng-click="login()">
+      Log in
+    </button>
+    <div class="text-center">
+      <span class="energized" ng-show="ui.error">
+        {{uiText.error.message}}
+      </span>
+      <span class="balanced" ng-show="ui.success">
+        {{uiText.success.message}}
+      </span>
+      <span class="balanced" ng-show="sessionInfo">
+        You already login as {{sessionInfo.email}}.
+      </span>
+    </div>
   </ion-content>
 </ion-view>
