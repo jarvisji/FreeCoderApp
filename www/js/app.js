@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('freeCoderApp', ['ionic', 'freeCoderApp.services', 'lbServices', 'i18nMessages'])
+angular.module('freeCoderApp', ['ionic','ionic.service.core', 'freeCoderApp.services', 'lbServices', 'i18nMessages'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
