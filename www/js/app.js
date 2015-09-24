@@ -48,7 +48,7 @@ angular.module('freeCoderApp', ['ionic','ionic.service.core', 'freeCoderApp.serv
         views: {
           'tab-todo': {
             templateUrl: 'templates/tab-todo.html',
-            controller: 'TodoCtrl'
+            controller: 'todoCtrl'
           }
         }
       })

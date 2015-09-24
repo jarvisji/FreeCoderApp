@@ -3,61 +3,61 @@ angular.module('freeCoderApp')
   .controller('DashCtrl', function ($scope) {
   })
 
-  .controller('TodoCtrl', ['$scope', '$rootScope', '$state', 'Member','Task', function ($scope, $rootScope, $state, Member, Task) {
-
-    $scope.uiFlag = {isShowDelete: false, isShowReorder: false, isCanSwipe: true};
-
-    $scope.getTasks = function () {
-      Member.tasks({
-        id: Member.getCurrentId(),
-        filter: {order: 'order DESC'}
-      }).$promise.then(function (data, respHeaders) {
-          $scope.tasks = data;
-          //checkTasksCount();
-        }, function (errResp) {
-          //alertRequestError(errResp);
-        });
-    };
-
-    $scope.reorderItem = function (item, fromIndex, toIndex) {
-      //Move the item in the array
-      //console.log('reorderItem()', arguments);
-      $scope.tasks.splice(fromIndex, 1);
-      $scope.tasks.splice(toIndex, 0, item);
-      //Task.prototype$updateAttributes({id: item.id}, {order: toIndex}).$promise.then(function (value, respHeader) {
-      //  $log.debug('Update task order successful:', value);
-      //}, function (errResp) {
-      //  $log.error('Update task target time failed: ', errResp);
-      //  //alertRequestError(errResp);
-      //});
-    };
-
-    $scope.deleteTask = function (idx) {
-      $scope.tasks.splice(idx, 1);
-    };
-
-    $scope.editTask = function (idx) {
-      //console.log('editTask()', $scope);
-    };
-
-    $scope.toggleReorder = function () {
-      //console.log('toggleReorder(). ', $scope.uiFlag.isShowReorder, $scope);
-      $scope.uiFlag.isShowReorder = !$scope.uiFlag.isShowReorder;
-    };
-
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    $scope.$on('$ionicView.enter', function (e) {
-      console.log('todoCtrl, sessionInfo: %o', $rootScope.sessionInfo);
-      if (!$rootScope.sessionInfo) {
-        $state.go('^.account');
-      } else {
-        $scope.getTasks();
-      }
-    });
-  }])
+  //.controller('TodoCtrl', ['$scope', '$rootScope', '$state', 'Member','Task', function ($scope, $rootScope, $state, Member, Task) {
+  //
+  //  $scope.uiFlag = {isShowDelete: false, isShowReorder: false, isCanSwipe: true};
+  //
+  //  $scope.getTasks = function () {
+  //    Member.tasks({
+  //      id: Member.getCurrentId(),
+  //      filter: {order: 'order DESC'}
+  //    }).$promise.then(function (data, respHeaders) {
+  //        $scope.tasks = data;
+  //        //checkTasksCount();
+  //      }, function (errResp) {
+  //        //alertRequestError(errResp);
+  //      });
+  //  };
+  //
+  //  $scope.reorderItem = function (item, fromIndex, toIndex) {
+  //    //Move the item in the array
+  //    //console.log('reorderItem()', arguments);
+  //    $scope.tasks.splice(fromIndex, 1);
+  //    $scope.tasks.splice(toIndex, 0, item);
+  //    //Task.prototype$updateAttributes({id: item.id}, {order: toIndex}).$promise.then(function (value, respHeader) {
+  //    //  $log.debug('Update task order successful:', value);
+  //    //}, function (errResp) {
+  //    //  $log.error('Update task target time failed: ', errResp);
+  //    //  //alertRequestError(errResp);
+  //    //});
+  //  };
+  //
+  //  $scope.deleteTask = function (idx) {
+  //    $scope.tasks.splice(idx, 1);
+  //  };
+  //
+  //  $scope.editTask = function (idx) {
+  //    //console.log('editTask()', $scope);
+  //  };
+  //
+  //  $scope.toggleReorder = function () {
+  //    //console.log('toggleReorder(). ', $scope.uiFlag.isShowReorder, $scope);
+  //    $scope.uiFlag.isShowReorder = !$scope.uiFlag.isShowReorder;
+  //  };
+  //
+  //  // With the new view caching in Ionic, Controllers are only called
+  //  // when they are recreated or on app start, instead of every page change.
+  //  // To listen for when this page is active (for example, to refresh data),
+  //  // listen for the $ionicView.enter event:
+  //  $scope.$on('$ionicView.enter', function (e) {
+  //    console.log('todoCtrl, sessionInfo: %o', $rootScope.sessionInfo);
+  //    if (!$rootScope.sessionInfo) {
+  //      $state.go('^.account');
+  //    } else {
+  //      $scope.getTasks();
+  //    }
+  //  });
+  //}])
 
   .controller('PomodoroCtrl', ['$scope', '$rootScope', '$state', 'Member', function ($scope, $rootScope, $state, Member) {
 
