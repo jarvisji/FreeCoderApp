@@ -1,8 +1,9 @@
-<ion-view view-title="TODO">
+<ion-view view-title="TODO" ng-controller="TodoCtrl">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-navicon" ng-click="toggleReorder()"></button>
+  </ion-nav-buttons>
   <ion-content>
-    <ion-list ng-controller="TodoCtrl"
-              show-reorder="uiFlag.isShowReorder"
-              can-swipe="uiFlag.isCanSwipe">
+    <ion-list show-reorder="uiFlag.isShowReorder" can-swipe="uiFlag.isCanSwipe">
       <ion-item class="item" ng-repeat="task in tasks">
         <h2>{{task.title}}</h2>
 
@@ -14,7 +15,7 @@
           Delete
         </ion-option-button>
 
-        <ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+        <ion-reorder-button class="ion-navicon" on-reorder="reorderItem(task, $fromIndex, $toIndex)">
         </ion-reorder-button>
       </ion-item>
     </ion-list>
